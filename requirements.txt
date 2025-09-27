@@ -12,18 +12,15 @@ protobuf==4.24.4
 pyyaml==6.0.1
 scikit-learn==1.3.1
 
-# RTX-Optimized Vector Store
-faiss-gpu==1.7.4  # GPU-accelerated vector similarity search
+# Vector Store and Embeddings
+faiss-cpu==1.7.4  # CPU version - Kaggle has GPU support built-in
 langchain==0.0.300
 chromadb==0.4.13
 sentence-transformers==2.2.2
-pinecone-client==2.2.4
 
-# RTX Performance Optimization
-flash-attn==2.0.0  # Optimized attention for transformers
+# Performance Optimization
 triton==2.0.0  # GPU kernel optimization
 deepspeed==0.10.0  # GPU memory optimization
-apex==0.1  # NVIDIA Apex for mixed precision training
 
 # Web Security and Testing
 mitmproxy==10.1.1
@@ -45,19 +42,13 @@ jupyter==1.0.0
 matplotlib==3.8.0
 seaborn==0.12.2
 
-# CUDA and RTX Optimization
-nvidia-cuda-runtime-cu11==11.8
-nvidia-cuda-nvrtc-cu11==11.8
-nvidia-cudnn-cu11==8.7.0
-nvidia-cublas-cu11==11.11.3.6
+# Optimization and CUDA Support
 einops==0.7.0
 optimum==1.13.2
 safetensors==0.4.0
 torch-optimizer==0.3.0
-torch-tensorrt==1.4.0  # TensorRT integration for RTX
 onnxruntime-gpu==1.15.1  # GPU accelerated inference
 xformers==0.0.20  # Memory-efficient transformers
-cuda-python==12.2.0  # CUDA Python bindings
 
 # Monitoring and Logging
 psutil==5.9.5
