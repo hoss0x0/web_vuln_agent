@@ -1,0 +1,67 @@
+# Request Parser Configuration
+
+# Size limits
+max_body_size: 10485760  # 10MB
+max_query_params: 100
+max_cache_size: 1000
+
+# Allowed HTTP methods
+allowed_methods:
+  - GET
+  - POST
+  - PUT
+  - DELETE
+  - PATCH
+  - HEAD
+  - OPTIONS
+
+# Parsing options
+decode_base64: true
+parse_cookies: true
+validate_content_length: true
+
+# Content type settings
+content_types:
+  json:
+    enabled: true
+    max_depth: 10
+    max_size: 5242880  # 5MB
+  xml:
+    enabled: true
+    max_depth: 8
+    max_size: 5242880  # 5MB
+  multipart:
+    enabled: true
+    max_files: 10
+    max_file_size: 2097152  # 2MB
+  form:
+    enabled: true
+    max_fields: 50
+
+# Security settings
+security:
+  validate_urls: true
+  check_content_length: true
+  max_header_size: 8192  # 8KB
+  max_cookie_size: 4096  # 4KB
+  allowed_schemes:
+    - http
+    - https
+  blocked_headers:
+    - Proxy-Connection
+    - Proxy-Authorization
+    - TE
+    - Trailer
+
+# Performance settings
+performance:
+  cache_enabled: true
+  cache_ttl: 3600  # 1 hour
+  max_parsing_time: 5  # seconds
+
+# Logging settings
+logging:
+  log_parsing_errors: true
+  log_invalid_requests: true
+  log_oversized_content: true
+  max_log_size: 1048576  # 1MB

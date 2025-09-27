@@ -1,0 +1,61 @@
+# Input Discovery Configuration
+
+# Patterns for identifying sensitive parameters
+sensitive_patterns:
+  - password
+  - token
+  - key
+  - secret
+  - auth
+  - session
+  - api[-_]?key
+  - access[-_]?token
+  - jwt
+  - credentials
+  - passphrase
+  - private[-_]?key
+
+# Headers to exclude from analysis
+excluded_headers:
+  - accept
+  - accept-encoding
+  - accept-language
+  - connection
+  - host
+  - user-agent
+  - cache-control
+  - pragma
+  - if-none-match
+  - if-modified-since
+  - upgrade-insecure-requests
+
+# Input size limits
+max_input_size: 8192  # 8KB
+
+# Pattern matching configuration
+enable_pattern_matching: true
+
+# Cache configuration
+max_cache_size: 10000
+history_size: 1000
+
+# Input type detection
+type_detection:
+  enable_json: true
+  enable_xml: true
+  enable_jwt: true
+  enable_base64: true
+  max_nested_depth: 5
+
+# Security settings
+security:
+  mask_sensitive_values: true
+  log_sensitive_params: false
+  validate_encoding: true
+  check_size_limits: true
+
+# Performance settings
+performance:
+  cache_ttl: 3600  # 1 hour
+  batch_size: 100
+  max_concurrent_operations: 10

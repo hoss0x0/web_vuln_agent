@@ -1,0 +1,123 @@
+analysis:
+  detect_encodings: true
+  detect_evasion: true
+  risk_assessment: true
+  technology_detection: true
+  reference_lookup: true
+
+patterns:
+  xss:
+    - '\b<[^>]*script.*?>'
+    - 'javascript:'
+    - 'on\w+\s*='
+    - 'alert\s*\('
+    - '\beval\s*\('
+    - 'document\.(write|cookie)'
+    - '\blocation\s*='
+    - '\bwindow\.'
+    - '\bsvg\s*on'
+
+  sqli:
+    - '(?i)(?:union\s+all|union\s+select)'
+    - '(?i)(?:or|and)\s+\d+\s*=\s*\d+'
+    - '(?i)sleep\s*\(\s*\d+\s*\)'
+    - '(?i)benchmark\s*\('
+    - '(?i)(?:having|group)\s+by'
+    - '(?i)load_file\s*\('
+    - '(?i)into\s+(?:out|dump)file'
+    - '(?i)information_schema'
+
+  cmdi:
+    - '(?:[;|`]|\$\()'
+    - '(?:\|\||&&)'
+    - '\bping\s+-[a-zA-Z]'
+    - '\bnc\s+'
+    - '\bcurl\s+'
+    - '\bwget\s+'
+    - '\bcat\s+/'
+    - '\becho\s+[\'"].*?[><]'
+
+  xxe:
+    - '<!ENTITY'
+    - '<!DOCTYPE[^>]*?SYSTEM'
+    - '<!ELEMENT'
+    - 'file:///'
+    - 'php://filter'
+    - 'data://text/plain'
+
+  ssti:
+    - '\{\{\s*[^}]*\}\}'
+    - '\${[^}]*}'
+    - '\#{[^}]*}'
+    - '%\{[^}]*\}'
+    - '\[\[[^\]]*\]\]'
+    - '\$\{[^}]*\}'
+
+  file_inclusion:
+    - '(?:\.{2}/+)+'
+    - 'file[://]+'
+    - 'php://filter'
+    - 'zip://|phar://'
+    - 'data://text/plain'
+    - 'expect://'
+    - 'input://'
+    - 'glob://'
+
+  deserialization:
+    - 'O:[0-9]+:"'
+    - '__wakeup'
+    - '__destruct'
+    - '__toString'
+    - 'unserialize\s*\('
+    - 'json_decode'
+    - 'yaml.load'
+    - 'pickle.loads'
+
+  ssrf:
+    - 'localhost'
+    - '127\.0\.0\.1'
+    - '0\.0\.0\.0'
+    - 'internal\.'
+    - 'file://'
+    - 'dict://'
+    - 'gopher://'
+    - 'redis://'
+
+encodings:
+  check_nested: true
+  max_depth: 3
+  detect_types:
+    - base64
+    - url
+    - html
+    - unicode
+    - hex
+
+cache:
+  enabled: true
+  max_size: 1000
+  ttl: 3600
+
+reference_sources:
+  - cve
+  - cwe
+  - owasp
+  - exploit-db
+  - mitre
+
+risk_levels:
+  critical:
+    score_range: [9, 10]
+    requires_immediate_action: true
+  high:
+    score_range: [7, 8.9]
+    requires_immediate_action: false
+  medium:
+    score_range: [4, 6.9]
+    requires_review: true
+  low:
+    score_range: [0.1, 3.9]
+    requires_review: false
+  info:
+    score_range: [0, 0]
+    requires_review: false

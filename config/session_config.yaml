@@ -1,0 +1,46 @@
+# Session Configuration
+user_agent: "WebVulnAgent/2.0 (Security Research)"
+
+# Authentication
+tokens:
+  auth_token: ""  # JWT token if needed
+  refresh_token: ""  # Refresh token if needed
+
+# Custom Headers
+headers:
+  Accept: "application/json"
+  Accept-Language: "en-US,en;q=0.9"
+  DNT: "1"
+
+# Cookies
+cookies: {}
+
+# Connection Settings
+timeout: 30
+max_retries: 3
+verify_ssl: true
+connection_pool_size: 100
+keepalive_timeout: 30
+compression: true
+
+# Retry Configuration
+retry_statuses:
+  - 408  # Request Timeout
+  - 429  # Too Many Requests
+  - 500  # Internal Server Error
+  - 502  # Bad Gateway
+  - 503  # Service Unavailable
+  - 504  # Gateway Timeout
+
+# Security Settings
+ssl_cert_path: ""
+ssl_key_path: ""
+encryption_key: ""  # Base64-encoded Fernet key
+
+# Protocol Settings
+allowed_protocols:
+  - http
+  - https
+
+# Session Management
+session_ttl: 3600  # 1 hour in seconds

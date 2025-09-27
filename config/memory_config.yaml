@@ -1,0 +1,20 @@
+memory_dir: memory
+findings_file: findings.jsonl
+backup_dir: backups
+compress_files: true
+max_file_size: 10485760  # 10MB
+rotation_count: 5
+validate_schema: true
+deduplicate: true
+storage:
+  compression_level: 9
+  backup_interval: 86400  # 24 hours
+  cleanup_interval: 604800  # 7 days
+validation:
+  max_title_length: 200
+  max_description_length: 2000
+  required_fields:
+    - type
+    - title
+    - description
+    - severity

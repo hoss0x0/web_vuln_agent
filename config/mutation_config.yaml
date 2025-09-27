@@ -1,0 +1,152 @@
+mutations:
+  encoding:
+    enabled: true
+    max_nested: 3
+    types:
+      - base64
+      - url
+      - html
+      - unicode
+      - hex
+    preserve_length: false
+    charset: 'utf-8'
+
+  case:
+    enabled: true
+    random_ratio: 0.5
+    preserve_keywords: true
+    keywords:
+      - SELECT
+      - UNION
+      - FROM
+      - WHERE
+      - script
+      - alert
+      - eval
+
+  whitespace:
+    enabled: true
+    max_spaces: 5
+    use_tabs: true
+    preserve_alignment: true
+    random_distribution: true
+
+  concatenation:
+    enabled: true
+    operators:
+      - '+'
+      - '.'
+      - '||'
+      - 'concat'
+    max_chunks: 5
+    preserve_literals: true
+
+  comments:
+    enabled: true
+    inline: true
+    multiline: true
+    styles:
+      - '/**/'
+      - '--'
+      - '#'
+      - '//'
+    max_length: 10
+    random_content: true
+
+  charset:
+    enabled: true
+    homoglyphs: true
+    unicode_escaped: true
+    hex_escaped: true
+    variations:
+      a: ['а', '4', '@']
+      e: ['е', '3', '€']
+      i: ['і', '1', '|']
+      o: ['о', '0', 'ο']
+      s: ['ѕ', '5', '$']
+
+  protocol:
+    enabled: true
+    variations:
+      - standard
+      - mixed_case
+      - unicode_separators
+      - encoded_separators
+    allowed_schemes:
+      - http
+      - https
+      - file
+      - data
+
+  structure:
+    enabled: true
+    tag_mutations: true
+    sql_mutations: true
+    path_mutations: true
+    max_depth: 3
+    preserve_semantics: true
+
+  logic:
+    enabled: true
+    boolean_mutations: true
+    arithmetic_mutations: true
+    comparison_operators:
+      - '='
+      - 'like'
+      - 'in'
+      - '<>'
+      - '<=>'
+    truth_values:
+      - '1=1'
+      - 'true'
+      - 'null is null'
+
+strategy:
+  max_mutations: 20
+  combine_mutations: true
+  preserve_semantics: true
+  complexity_limit: 5
+  mutation_order:
+    - encoding
+    - case
+    - whitespace
+    - concatenation
+    - comments
+    - charset
+    - protocol
+    - structure
+    - logic
+
+llm:
+  enabled: true
+  temperature: 0.7
+  max_tokens: 500
+  strategies:
+    - context_aware
+    - pattern_based
+    - semantic_preserve
+  prompt_template: |
+    Generate mutations for the following payload:
+    {payload}
+    
+    Consider:
+    1. Vulnerability type: {vuln_type}
+    2. Current encodings: {encodings}
+    3. Evasion techniques: {techniques}
+    4. Context: {context}
+    
+    Return JSON with mutated versions.
+
+cache:
+  enabled: true
+  max_size: 1000
+  ttl: 3600
+  storage: memory
+
+validation:
+  check_syntax: true
+  verify_encoding: true
+  max_length: 10000
+  forbidden_patterns:
+    - '(rm|dd).+-rf'
+    - 'format.*[^']'

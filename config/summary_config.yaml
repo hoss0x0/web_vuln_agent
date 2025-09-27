@@ -1,0 +1,111 @@
+summary_types:
+  technical:
+    prompt_template: |
+      Generate a detailed technical summary of the following vulnerability finding.
+      Focus on technical details, affected components, and specific mitigation steps.
+      
+      Finding: {finding}
+      
+      Include:
+      1. Technical description
+      2. Affected components
+      3. Impact assessment
+      4. Detailed mitigation steps
+      5. Technical recommendations
+    max_length: 1000
+    include_code_snippets: true
+
+  executive:
+    prompt_template: |
+      Generate an executive summary of the following vulnerability finding.
+      Focus on business impact, risk level, and high-level mitigation strategy.
+      
+      Finding: {finding}
+      
+      Include:
+      1. Business impact
+      2. Risk assessment
+      3. High-level mitigation strategy
+      4. Resource requirements
+      5. Timeline recommendations
+    max_length: 500
+    include_code_snippets: false
+
+  detailed:
+    prompt_template: |
+      Generate a comprehensive detailed summary of the following vulnerability finding.
+      Include all technical and business aspects with full context and examples.
+      
+      Finding: {finding}
+      
+      Include:
+      1. Detailed technical description
+      2. Affected components and dependencies
+      3. Root cause analysis
+      4. Comprehensive impact assessment
+      5. Detailed exploitation scenario
+      6. Complete mitigation strategy
+      7. Implementation recommendations
+      8. Future prevention measures
+    max_length: 2000
+    include_code_snippets: true
+
+  brief:
+    prompt_template: |
+      Generate a brief summary of the following vulnerability finding.
+      Focus on key points and critical information only.
+      
+      Finding: {finding}
+      
+      Include:
+      1. Key vulnerability description
+      2. Critical impact points
+      3. Essential mitigation steps
+    max_length: 300
+    include_code_snippets: false
+
+  mitigation:
+    prompt_template: |
+      Generate a mitigation-focused summary of the following vulnerability finding.
+      Emphasize remediation steps and prevention measures.
+      
+      Finding: {finding}
+      
+      Include:
+      1. Brief vulnerability context
+      2. Detailed mitigation steps
+      3. Implementation guide
+      4. Prevention measures
+      5. Validation steps
+    max_length: 800
+    include_code_snippets: true
+
+  impact:
+    prompt_template: |
+      Generate an impact-focused summary of the following vulnerability finding.
+      Emphasize business and technical consequences.
+      
+      Finding: {finding}
+      
+      Include:
+      1. Brief vulnerability description
+      2. Technical impact analysis
+      3. Business impact assessment
+      4. Risk evaluation
+      5. Potential damage scenarios
+    max_length: 800
+    include_code_snippets: false
+
+masking:
+  enabled: true
+  mask_types:
+    - email
+    - ip_address
+    - credit_card
+    - ssn
+    - passport
+    - bank_account
+
+batch_processing:
+  max_concurrent: 4
+  chunk_size: 10

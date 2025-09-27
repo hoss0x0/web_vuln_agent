@@ -1,0 +1,120 @@
+# Core AI and ML with RTX Optimization
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch>=2.0.1+cu118  # CUDA 11.8 support
+torchvision>=0.15.2+cu118
+torchaudio>=2.0.2+cu118
+transformers>=4.34.0
+accelerate>=0.23.0
+bitsandbytes>=0.41.1  # Quantization support
+sentencepiece>=0.1.99
+protobuf>=4.24.4
+pyyaml>=6.0.1
+scikit-learn>=1.3.1
+
+# RTX-Optimized Vector Store
+faiss-gpu>=1.7.4  # GPU-accelerated vector similarity search
+langchain>=0.0.300
+chromadb>=0.4.13
+sentence-transformers>=2.2.2
+pinecone-client>=2.2.4
+
+# RTX Performance Optimization
+flash-attn>=2.0.0  # Optimized attention for transformers
+triton>=2.0.0  # GPU kernel optimization
+deepspeed>=0.10.0  # GPU memory optimization
+apex>=0.1  # NVIDIA Apex for mixed precision training
+
+# Web Security and Testing
+mitmproxy>=10.1.1
+playwright>=1.38.0
+selenium>=4.13.0
+python-owasp-zap-v2.4>=0.0.20
+paramiko>=3.3.1
+dnspython>=2.4.2
+pyOpenSSL>=23.2.0
+sslyze>=5.1.3
+
+# Data Processing and Analysis
+loguru>=0.7.2
+tqdm>=4.66.1
+numpy>=1.24.3
+pandas>=2.1.1
+scipy>=1.11.3
+jupyter>=1.0.0
+matplotlib>=3.8.0
+seaborn>=0.12.2
+
+# CUDA and RTX Optimization
+nvidia-cuda-runtime-cu11>=11.8
+nvidia-cuda-nvrtc-cu11>=11.8
+nvidia-cudnn-cu11>=8.7.0
+nvidia-cublas-cu11>=11.11.3.6
+einops>=0.7.0
+optimum>=1.13.2
+safetensors>=0.4.0
+torch-optimizer>=0.3.0
+torch-tensorrt>=1.4.0  # TensorRT integration for RTX
+onnxruntime-gpu>=1.15.1  # GPU accelerated inference
+xformers>=0.0.20  # Memory-efficient transformers
+cuda-python>=12.2.0  # CUDA Python bindings
+
+# Monitoring and Logging
+psutil>=5.9.5
+GPUtil>=1.4.0
+prometheus-client>=0.17.1
+elastic-apm>=6.18.0
+sentry-sdk>=1.31.0
+
+# Web and Networking
+requests>=2.31.0
+aiohttp>=3.8.5
+beautifulsoup4>=4.12.2
+httpx>=0.25.0
+websockets>=11.0.3
+urllib3>=2.0.6
+validators>=0.22.0
+
+# Security and Authentication
+cryptography>=41.0.4
+python-dotenv>=1.0.0
+jwt>=1.3.1
+passlib>=1.7.4
+bcrypt>=4.0.1
+pyAesCrypt>=6.1.0
+
+# Development and Testing
+pytest>=7.4.2
+pytest-asyncio>=0.21.1
+pytest-cov>=4.1.0
+black>=23.9.1
+flake8>=6.1.0
+mypy>=1.5.1
+pre-commit>=3.4.0
+
+# Documentation
+sphinx>=7.2.6
+sphinx-rtd-theme>=1.3.0
+pdoc3>=0.10.0
+
+# System and OS Integration
+psutil>=5.9.5
+pywin32>=306; platform_system == "Windows"
+setproctitle>=1.3.2; platform_system != "Windows"
+
+# CUDA Support for RTX GPUs
+torch>=2.0.1+cu118  # CUDA 11.8 support
+torchvision>=0.15.2+cu118
+torchaudio>=2.0.2+cu118
+nvidia-cuda-runtime-cu11>=11.8
+nvidia-cuda-nvrtc-cu11>=11.8
+nvidia-cuda-cupti-cu11>=11.8
+nvidia-cudnn-cu11>=8.7.0
+nvidia-cublas-cu11>=11.11.3.6
+nvidia-cufft-cu11>=10.9.0.58
+nvidia-curand-cu11>=10.3.0.86
+nvidia-cusolver-cu11>=11.4.1.48
+nvidia-cusparse-cu11>=11.7.5.86
+nvidia-nccl-cu11>=2.14.3
+nvidia-nvtx-cu11>=11.8.86
+triton>=2.0.0  # For better performance with Mistral
+flash-attn>=2.0.0  # Fast attention mechanism for transformers
